@@ -13,6 +13,16 @@
  *       magma // color scheme array that maps 0 - 255 to rgb values
  *    
  */
+
+function gup( name, url ) {
+    if (!url) url = location.href;
+    name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+    var regexS = "[\\?&]"+name+"=([^&#]*)";
+    var regex = new RegExp( regexS );
+    var results = regex.exec( url );
+    return results == null ? null : results[1];
+}
+
 function Annotator() {
     this.wavesurfer;
     this.playBar;
@@ -227,7 +237,9 @@ Annotator.prototype = {
                 // List of actions the user took to play and pause the audio
                 play_events: this.playBar.getEvents(),
                 // Boolean, if at the end, the user was shown what city the clip was recorded in
-                final_solution_shown: this.stages.aboveThreshold()
+                final_solution_shown: this.stages.aboveThreshold(),
+                // assibnmeng id
+                assignmentId: gup('assignmentId')
             };
 
             if (this.stages.aboveThreshold()) {
@@ -247,6 +259,7 @@ Annotator.prototype = {
     // Make POST request, passing back the content data. On success load in the next task
     post: function (content) {
         var my = this;
+        console.log(JSON.stringify(content))
         $.ajax({
             type: 'POST',
             url: $.getJSON(postUrl),
