@@ -44,7 +44,7 @@ function Annotator() {
         format: 'rgb',
         alpha: 1
     });
-
+    console.log(location.href)
     // Create wavesurfer (audio visualization component)
     var height = 256;
     this.wavesurfer = Object.create(WaveSurfer);
