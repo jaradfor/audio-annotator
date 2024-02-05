@@ -261,7 +261,7 @@ Annotator.prototype = {
             my.loadNextTask();
         })
         .fail(function() {
-            alert('Error: Unable to Submit Annotations');
+            alert(JSON.stringify(content));
         })
         .always(function() {
             // No longer sending response
