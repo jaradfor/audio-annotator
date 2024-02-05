@@ -261,7 +261,7 @@ Annotator.prototype = {
             my.loadNextTask();
         })
         .fail(function() {
-            alert(JSON.stringify(content));
+            alert($.getJSON(postUrl));
         })
         .always(function() {
             // No longer sending response
