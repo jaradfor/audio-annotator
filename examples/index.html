@@ -61,11 +61,9 @@
     </script>
 </body>
 
-<rb.Modal.Footer>
 <form name="mturk_form" method="post" id="mturk_form" action={postUrl}>
   <input type="hidden" value='' name="assignmentId" id={gup('assignmentId')}/>
-  <rb.Input type="submit" style={{width:'70%', float: "left"}}/>
-  <rb.Button onClick={self.props.closeSubmit}>Cancel</rb.Button>
+  <input type="submit" style={{width:'70%', float: "left"}}/>
 </form>
 
 </html>
