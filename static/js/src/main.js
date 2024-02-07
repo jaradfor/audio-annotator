@@ -33,7 +33,7 @@ function Annotator() {
     this.taskStartTime;
     this.hiddenImage;
     // only automatically open instructions modal when first loaded
-    this.instructionsViewed = false;
+    this.instructionsViewed = true;
     // Boolean, true if currently sending http post request 
     this.sendingResponse = false;
 
@@ -263,7 +263,7 @@ Annotator.prototype = {
         console.log(JSON.stringify(content))
         $.ajax({
             type: 'POST',
-            url: $.getJSON(postUrl),
+            url: postUrl,
             contentType: 'application/json',
             data: JSON.stringify(content)
         })
