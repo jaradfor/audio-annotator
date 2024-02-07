@@ -62,9 +62,15 @@
 </body>
 
 <form name="mturk_form" method="post" id="mturk_form" action='https://www.mturk.com/mturk/externalSubmit'>
-  <input type="hidden" value={gup('assignmentId')} name="assignmentId" id="assignmentId">
-  <input type="hidden" value='bar' name="foo" id={gup('assignmentId')}/>
+  <input type="hidden" value='' name="assignmentId" id="assignmentId"/>
+  <input type="hidden" value='bar' name="foo" id="bar"/>
   <input type="submit" style={{width:'70%', float: "left"}}/>
 </form>
-
+    
+<script>
+    document.getElementById('assignmentId').value = gup('assignmentId');
+    document.getElementById('foo').value = 'bar';
+    console.log(gup('assignmentId'));
+</script>
+    
 </html>
