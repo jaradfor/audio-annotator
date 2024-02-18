@@ -1,5 +1,17 @@
 'use strict';
 
+
+function gup( name, url ) {
+    if (!url) url = location.href;
+    console.log(url, document.location.href);
+    name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+    var regexS = "[\\?&]"+name+"=([^&#]*)";
+    var regex = new RegExp( regexS );
+    var results = regex.exec( url );
+    return results == null ? null : results[1];
+}
+
+
 /*
  * Purpose:
  *   Combines all the components of the interface. Creates each component, gets task
@@ -177,7 +189,7 @@ Annotator.prototype = {
             // Update the visualization type and the feedback type and load in the new audio clip
             my.wavesurfer.params.visualization = my.currentTask.visualization; // invisible, spectrogram, waveform
             my.wavesurfer.params.feedback = my.currentTask.feedback; // hiddenImage, silent, notify, none 
-            my.wavesurfer.load(my.currentTask.url);
+            my.wavesurfer.load("https://demo-diarization-mturk.s3.us-east-2.amazonaws.com/" + gup("wav"));
         };
 
         if (this.currentTask.feedback !== 'none') {
