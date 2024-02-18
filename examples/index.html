@@ -82,8 +82,9 @@
     function getAnnots()
     {
         // vreset();
-        console.log(annotator.submitAnnotations());
-        document.getElementById('annots').value = annotator.submitAnnotations();
+        var data = annotator.submitAnnotations();
+        console.log(data);
+        document.getElementById('annots').value = data;
     }
     console.log(gup('assignmentId'));
 </script>
