@@ -13,17 +13,6 @@
  *       magma // color scheme array that maps 0 - 255 to rgb values
  *    
  */
-
-function gup( name, url ) {
-    if (!url) url = location.href;
-    console.log(url, document.location.href);
-    name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-    var regexS = "[\\?&]"+name+"=([^&#]*)";
-    var regex = new RegExp( regexS );
-    var results = regex.exec( url );
-    return results == null ? null : results[1];
-}
-
 function Annotator() {
     this.wavesurfer;
     this.playBar;
@@ -44,7 +33,7 @@ function Annotator() {
         format: 'rgb',
         alpha: 1
     });
-    console.log(location.href)
+
     // Create wavesurfer (audio visualization component)
     var height = 256;
     this.wavesurfer = Object.create(WaveSurfer);
@@ -153,7 +142,7 @@ Annotator.prototype = {
             );
 
             // set video url
-            $('#tutorial-video').attr('src', tutorialVideoURL);
+            // $('#tutorial-video').attr('src', tutorialVideoURL);
 
             // add instructions
             var instructionsContainer = $('#instructions-container');
@@ -175,7 +164,7 @@ Annotator.prototype = {
                     instructionsContainer.append(instr);
                 });
                 if (!my.instructionsViewed) {
-                    $('#instructions-modal').openModal();
+                    // $('#instructions-modal').openModal();
                     my.instructionsViewed = true;
                 }
             }
@@ -238,29 +227,16 @@ Annotator.prototype = {
                 // List of actions the user took to play and pause the audio
                 play_events: this.playBar.getEvents(),
                 // Boolean, if at the end, the user was shown what city the clip was recorded in
-                final_solution_shown: this.stages.aboveThreshold(),
-                // assibnmeng id
-                assignmentId: gup('assignmentId')
+                final_solution_shown: this.stages.aboveThreshold()
             };
 
-            if (this.stages.aboveThreshold()) {
-                // If the user is suppose to recieve feedback and got enough of the annotations correct
-                // display the city the clip was recorded for 2 seconds and then submit their work
-                var my = this;
-                this.stages.displaySolution();
-                setTimeout(function() {
-                    my.post(content);
-                }, 2000);
-            } else {
-                this.post(content);
-            }
+            return JSON.stringify(content)
         }
     },
 
     // Make POST request, passing back the content data. On success load in the next task
     post: function (content) {
         var my = this;
-        console.log(JSON.stringify(content))
         $.ajax({
             type: 'POST',
             url: postUrl,
@@ -275,7 +251,7 @@ Annotator.prototype = {
             my.loadNextTask();
         })
         .fail(function() {
-            alert("failed");
+            alert('Error: Unable to Submit Annotations');
         })
         .always(function() {
             // No longer sending response
@@ -288,7 +264,12 @@ Annotator.prototype = {
 function main() {
     // Create all the components
     var annotator = new Annotator();
+    window.annotator = annotator;
+    window.annotator.stages = annotator.stages;
     // Load the first audio annotation task
     annotator.loadNextTask();
+    console.log("here!")
+    // console.log(annotator.prototype.submitAnnotations())
 }
-main();
+
+window.addEventListener('DOMContentLoaded', main);
