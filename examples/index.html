@@ -64,6 +64,7 @@
 <form name="mturk_form" method="post" id="mturk_form" action='https://www.mturk.com/mturk/externalSubmit'>
   <input type="hidden" value='' name="assignmentId" id="assignmentId"/>
   <input type="hidden" value='' name="annots" id="annots"/>
+  <input type="hidden" value='' name="fname" id="fname"/>
   <input type="submit" onclick="getAnnots();">
 </form>
     
@@ -79,6 +80,7 @@
     }
     
     document.getElementById('assignmentId').value = gup('assignmentId');
+    document.getElementById('fname').value = gup('wav');
     function getAnnots()
     {
         // vreset();
