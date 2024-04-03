@@ -3,7 +3,7 @@
         "feedback": "none",
         "visualization": "spectrogram",
         "proximityTag": [],
-        "annotationTag": ["Bird", "Blane"],
+        "annotationTag": ["Bird", "Plane"],
         "url": "",
         "tutorialVideoURL":"https://www.youtube.com/embed/Bg8-83heFRM",
         "alwaysShowTags": true,
