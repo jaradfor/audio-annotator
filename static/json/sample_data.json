@@ -5,7 +5,7 @@
         "proximityTag": [],
         "annotationTag": ["Bird", "Plane"],
         "url": "",
-        "tutorialVideoURL":"https://www.youtube.com/embed/Bg8-83heFRM",
+        "tutorialVideoURL":"",
         "alwaysShowTags": true,
         "instructions": [
             "Highlight &amp; Label Each Sound",
@@ -13,7 +13,9 @@
             "2. &nbsp; Click the play button and listen to the recording.", 
             "3. &nbsp; For each sound event that you hear click and drag on the visualization to create a new annotation.",
             "4. &nbsp; When creating a new annotation be as precise as possible.",
-            "5. &nbsp; Select the appropriate label and indicate whether the sound is near or far."
+            "        For birdsong, consider gaps in song longer than 5 seconds different annotations.",
+            "        This means 2 seconds between chirps is a single event, but 6 seconds is 2 different annotations.",
+            "5. &nbsp; Select the appropriate label."
         ]
     }
 }
