@@ -9,6 +9,14 @@
   margin: auto;
 }
 
+form {
+  overflow: hidden;
+}
+submit {
+  float: right;
+  clear: both;
+}
+
 .btn {
   height: 30px;
   line-height: 30px;
