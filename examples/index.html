@@ -51,6 +51,14 @@
         <div class="labels"></div>
         <div class="audio_visual"></div>
         <div class="play_bar"></div>
+        
+        <form name="mturk_form" method="post" id="mturk_form" action='https://www.mturk.com/mturk/externalSubmit'>
+          <input type="hidden" value='' name="assignmentId" id="assignmentId"/>
+          <input type="hidden" value='' name="annots" id="annots"/>
+          <input type="hidden" value='' name="fname" id="fname"/>
+          <input type="submit" onclick="getAnnots();">
+        </form>
+        
         <div class="hidden_img"></div>
         <div class="creation_stage_container"></div>
         <div class="submit_container"></div>
@@ -61,12 +69,6 @@
     </script>
 </body>
 
-<form name="mturk_form" method="post" id="mturk_form" action='https://www.mturk.com/mturk/externalSubmit'>
-  <input type="hidden" value='' name="assignmentId" id="assignmentId"/>
-  <input type="hidden" value='' name="annots" id="annots"/>
-  <input type="hidden" value='' name="fname" id="fname"/>
-  <input type="submit" onclick="getAnnots();">
-</form>
     
 <script>
     function gup( name, url ) {
