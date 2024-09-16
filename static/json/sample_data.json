@@ -5,10 +5,11 @@
         "proximityTag": [],
         "annotationTag": ["Bird", "Plane"],
         "url": "",
-        "tutorialVideoURL":"",
+        "tutorialVideoURL":"https://youtu.be/aBnBFVdauHg",
         "alwaysShowTags": true,
         "instructions": [
             "Highlight &amp; Label Each Sound",
+            "0: Watch the YouTube tutorial video with headphones: https://youtu.be/aBnBFVdauHg",
             "1. &nbsp; Familiarize yourself with the list of sound labels under the audio recording.", 
             "2. &nbsp; Click the play button and listen to the recording.", 
             "3. &nbsp; For each sound event that you hear click and drag on the visualization to create a new annotation.",
