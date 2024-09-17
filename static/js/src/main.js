@@ -34,7 +34,7 @@ function Annotator() {
     this.taskStartTime;
     this.hiddenImage;
     // only automatically open instructions modal when first loaded
-    this.instructionsViewed = true;
+    this.instructionsViewed = false;
     // Boolean, true if currently sending http post request 
     this.sendingResponse = false;
 
