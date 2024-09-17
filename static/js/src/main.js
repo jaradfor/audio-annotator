@@ -154,7 +154,7 @@ Annotator.prototype = {
             );
 
             // set video url
-            // $('#tutorial-video').attr('src', tutorialVideoURL);
+            $('#tutorial-video').attr('src', tutorialVideoURL);
 
             // add instructions
             var instructionsContainer = $('#instructions-container');
@@ -176,7 +176,7 @@ Annotator.prototype = {
                     instructionsContainer.append(instr);
                 });
                 if (!my.instructionsViewed) {
-                    // $('#instructions-modal').openModal();
+                    $('#instructions-modal').openModal();
                     my.instructionsViewed = true;
                 }
             }
